@@ -1,0 +1,40 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (member.length > 0) { %>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Mã Thành Viên</th>
+                        <th scope="col">Ảnh Đại Diện</th>
+                        <th scope="col">Họ Và Tên</th>
+                        <th scope="col">Điện Thoại</th>
+                        <th scope="col">Địa Chỉ</th>
+                        <th scope="col">Ví Trí</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% member.forEach((player, index) => { %>
+                        <tr>
+                            <th scope="row"><%= player.mamb %></th>
+                            <td><img src="/assets/img/<%= player.avt %>" class="rounded-circle player-img" alt=""></td>
+                            <td><%= player.ho_ten %></td>
+                            <td><%= player.dien_thoai %></td>
+                            <td><%= player.dia_chi %></td>
+                            <td><%= player.vi_tri %></td>
+                            <td>
+                                <a href="editmb/<%= player.mamb%>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="deletemb/<%= player.mamb%>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">Chưa Có Thành Viên Nào<a href="/addmb" >Thêm</a> Thành Viên Ở Đây</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
+<% include foolter.ejs %>

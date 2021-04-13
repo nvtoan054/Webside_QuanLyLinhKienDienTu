@@ -1,0 +1,38 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (sanpham.length > 0) { %>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Mã Sản Phẩm</th>
+                        <th scope="col">Hình Ảnh</th>
+                        <th scope="col">Tên Sản Phẩm</th>
+                        <th scope="col">Tồn Kho</th>
+                        <th scope="col">Giá Sản Phẩm</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% sanpham.forEach((player, index) => { %>
+                        <tr>
+                            <th scope="row"><%= player.masp %></th>
+                            <td><img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt=""></td>
+                            <td><%= player.ten_sp %></td>
+                            <td><%= player.ton_kho %></td>
+                            <td><%= player.gia %></td>
+                            <td>
+                                <a href="edit/<%= player.masp %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="delete/<%= player.masp %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">Không Có Sản Phẩm <a href="/add" >Thêm</a> sản phẩm</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
+<% include foolter.ejs %>

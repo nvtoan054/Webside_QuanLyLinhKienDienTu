@@ -1,0 +1,32 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (player) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="ten-sp">Tên Sản Phẩm</label>
+                    <input type="text" class="form-control" name="ten_sp" id="ten-sp" value="<%= player.ten_sp %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="ton-kho">Tồn Kho</label>
+                    <input type="text" class="form-control" name="ton_kho" id="ton-kho" value="<%= player.ton_kho %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="gia">Giá</label>
+                    <input type="text" class="form-control" name="gia" id="gia" value="<%= player.gia %>" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Sản phẩm không tồn tại<a href="add">Thêm</a> sản phẩm ở đây</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
+<% include foolter.ejs %>
